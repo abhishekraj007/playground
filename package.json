@@ -1,0 +1,27 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "esprima": "^4.0.1",
+    "lodash": "^4.17.15",
+    "next": "^9.3.0",
+    "next-redux-wrapper": "^5.0.0",
+    "react": "^16.13.0",
+    "react-codemirror": "^1.0.0",
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
+    "react-split-pane": "^0.1.89",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "reselect": "^4.0.0",
+    "sass": "^1.26.3"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
