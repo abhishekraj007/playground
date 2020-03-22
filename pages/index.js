@@ -16,10 +16,16 @@ class App extends React.Component {
     const clientAvailable = typeof window !== "undefined";
 
     return (
-     
-      <SplitPane className="question-page" split="vertical" defaultSize="100%">
-       <Editor className="editor" />
-        <Viewer className="viewer" />
+      <SplitPane
+        minSize={100}
+        maxSize={1000}
+        className="question-page"
+        split="vertical"
+        defaultSize={parseInt(localStorage.getItem("editorSize")) || "70%"}
+        onChange={size => localStorage.setItem("editorSize", size)}
+      >
+        <Editor />
+        <Viewer />
       </SplitPane>
     );
   }

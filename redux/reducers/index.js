@@ -1,8 +1,16 @@
-import { combineReducers } from 'redux';
-import code from './code_reducer';
+import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
-const rootReducer = combineReducers({
-  code
+import codeReducer from "./codeReducer";
+
+const persistConfig = {
+  key: "root",
+  storage
+};
+
+export const rootReducer = combineReducers({
+  codeReducer
 });
 
-export default rootReducer;
+export default persistReducer(persistConfig, rootReducer);

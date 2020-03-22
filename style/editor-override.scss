@@ -1,0 +1,153 @@
+$editor-background: #001528;
+// $editor-background: #1b1b1b;
+$editor-comment: #c3c3c3;
+
+$pane-background: #0c0c0c;
+$pane-header-bg: #02203c;
+$pane-header-color: #cccccc;
+$pane-color: #ffffff;
+
+$resizer-background: #02203c;
+$resizer-width: 1rem;
+$border-color: rgba(0, 0, 0, 0);
+$resizer-hover-bg: #999999;
+
+$error-color: #d3ff2e;
+
+.ReactCodeMirror,
+.CodeMirror {
+  height: 100%;
+}
+
+.Pane {
+  background-color: $pane-background;
+  color: $pane-color;
+  // padding: 1rem;
+}
+
+.pane-header {
+  padding: 0.5rem 1rem;
+  background: $pane-header-bg;
+  border-bottom: 1px solid $border-color;
+  color: $pane-header-color;
+  font-weight: 600;
+}
+
+.editor-error {
+  white-space: pre;
+  color: $error-color;
+  padding: 1rem;
+}
+
+.editor-result {
+  padding: 1rem;
+}
+
+/* resizer */
+
+.Resizer {
+  background: $resizer-background;
+
+  // opacity: 0.2;
+  z-index: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+
+.Resizer:hover {
+  transition: all 0.8s;
+  background: $resizer-hover-bg;
+}
+
+.Resizer.horizontal {
+  height: $resizer-width;
+  margin: -1px 0;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  cursor: row-resize;
+  width: 100%;
+}
+
+.Resizer.vertical {
+  width: $resizer-width;
+  margin: 0 -1px;
+  border-left: 1px solid $border-color;
+  border-right: 1px solid $border-color;
+  cursor: col-resize;
+}
+
+.Resizer.disabled {
+  cursor: not-allowed;
+}
+
+.Resizer.disabled:hover {
+  border-color: transparent;
+}
+
+.cm-comment {
+  color: $editor-comment !important;
+}
+
+.CodeMirror-composing {
+  border-bottom: 2px solid;
+}
+
+.CodeMirror span {
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.hintsContainer .CodeMirror span,
+.promptContainer .CodeMirror span {
+  font-size: 15px;
+  font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+.cm-s-monokai.CodeMirror {
+  background: $editor-background;
+  color: #fff;
+}
+
+.cm-s-monokai .CodeMirror-gutters {
+  background: $editor-background;
+}
+
+.CodeMirror-overlayscroll-horizontal div,
+.CodeMirror-overlayscroll-vertical div {
+  background: #15314b;
+}
+
+.CodeMirror-linenumber {
+  padding: 0 10px 0 5px;
+}
+
+.cm-s-blackboard .CodeMirror-linenumber,
+.cm-s-cobalt .CodeMirror-linenumber,
+.cm-s-lucario .CodeMirror-linenumber,
+.cm-s-midnight .CodeMirror-linenumber,
+.cm-s-monokai .CodeMirror-linenumber,
+.cm-s-night .CodeMirror-linenumber,
+.cm-s-oceanic-next .CodeMirror-linenumber,
+.cm-s-rubyblue .CodeMirror-linenumber {
+  color: #fff !important;
+}
+
+.cm-s-default .CodeMirror-linenumber,
+.cm-s-solarized.cm-s-light .CodeMirror-linenumber {
+  color: #02203c !important;
+}
+
+/* See issue #2901 */
+.cm-tab-wrap-hack:after {
+  content: "";
+}
+
+/* Help users use markselection to safely style text background */
+span.CodeMirror-selectedtext {
+  background: none;
+}

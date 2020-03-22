@@ -1,7 +1,7 @@
 import _ from "lodash";
 import { connect } from "react-redux";
 import parseExpressions from "../redux/selectors/parse_expressions";
-import SplitPane, {Pane} from "react-split-pane";
+import SplitPane, { Pane } from "react-split-pane";
 
 class Viewer extends React.Component {
   state = {
@@ -42,7 +42,7 @@ class Viewer extends React.Component {
 
   componentDidMount() {
     this.setState({
-      defaultHeight: window.innerHeight / 1.3
+      defaultHeight: window.innerHeight / 2
     });
   }
 
@@ -55,12 +55,24 @@ class Viewer extends React.Component {
 
     return (
       <SplitPane
-        split="horizontal"
-        defaultSize={defaultHeight}
-        className="viewer"
+        split="vertical"
+        minSize={50}
+        maxSize={600}
+        defaultSize={parseInt(localStorage.getItem("viewerSize")) || "50%"}
+        onChange={size => localStorage.setItem("viewerSize", size)}
       >
-        <div initialSize="50%" className="result">{this.renderExpressions(this.props.code)}</div>
-       <div initialSize="50%" className="errors">{this.props.errors ? this.props.errors : null }</div> 
+        <div className="pane-header-wrapper">
+          <div className="pane-header">Result</div>
+          <div className="editor-result">
+            {this.renderExpressions(this.props.code)}
+          </div>
+        </div>
+        <div className="editor-error-wrapper">
+          <div className="pane-header">Errors</div>
+          <div className="editor-error">
+            <div>{this.props.errors ? this.props.errors : null}</div>
+          </div>
+        </div>
       </SplitPane>
     );
   }
@@ -71,8 +83,7 @@ function mapStateToProps(state) {
   // console.log("window", window);
 
   try {
-      expressions = parseExpressions(state);
-   
+    expressions = parseExpressions(state);
   } catch (e) {
     errors = e.toString();
   }

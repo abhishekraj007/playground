@@ -29,12 +29,14 @@ class Editor extends Component {
     if (modeLoaded) options.mode = "jsx";
 
     return (
+      <React.Fragment>
+        <div className="pane-header">Javascript</div>
         <CodeMirror
           value={this.props.code}
           onChange={this.onCodeChange.bind(this)}
           options={options}
         />
-      
+      </React.Fragment>
     );
   }
 }
