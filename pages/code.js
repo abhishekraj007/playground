@@ -9,7 +9,7 @@ const Code = () => {
   const isClient = typeof window !== "undefined";
 
   return (
-    <React.Fragment>
+    <div>
       <EditorHeader />
 
       <SplitPane
@@ -25,7 +25,7 @@ const Code = () => {
         <Editor />
         <Viewer />
       </SplitPane>
-    </React.Fragment>
+    </div>
   );
 };
 
