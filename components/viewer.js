@@ -4,11 +4,8 @@ import parseExpressions from "../redux/selectors/parse_expressions";
 import SplitPane, { Pane } from "react-split-pane";
 
 class Viewer extends React.Component {
-  state = {
-    defaultHeight: 200
-  };
-
   evaluateExpressions(expressions) {
+    console.log(expressions);
     const formattedExpressions = _.mapValues(expressions, expression => {
       const result = eval(expression);
 
@@ -40,25 +37,23 @@ class Viewer extends React.Component {
     return true;
   }
 
-  componentDidMount() {
-    this.setState({
-      defaultHeight: window.innerHeight / 2
-    });
-  }
-
   renderExpressions(code) {
     return this.evaluateExpressions(this.props.expressions);
   }
 
   render() {
-    const { defaultHeight } = this.state;
+    const isClient = typeof window !== "undefined";
 
     return (
       <SplitPane
         split="vertical"
         minSize={50}
         maxSize={600}
-        defaultSize={parseInt(localStorage.getItem("viewerSize")) || "50%"}
+        defaultSize={
+          (isClient &&
+            parseInt(localStorage && localStorage.getItem("viewerSize"))) ||
+          "50%"
+        }
         onChange={size => localStorage.setItem("viewerSize", size)}
       >
         <div className="pane-header-wrapper">
@@ -87,7 +82,6 @@ function mapStateToProps(state) {
   } catch (e) {
     errors = e.toString();
   }
-  console.log(expressions);
   return { expressions, errors };
 }
 

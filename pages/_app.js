@@ -14,7 +14,7 @@ const MyApp = props => {
   const { Component, pageProps, store } = props;
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      <PersistGate loading={<Component {...pageProps} />} persistor={persistor}>
         <Component {...pageProps} />
       </PersistGate>
     </Provider>

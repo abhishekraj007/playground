@@ -1,6 +1,4 @@
-import {
-  DID_UPDATE_CODE
-} from './types';
+import { DID_UPDATE_CODE } from "./types";
 
 export function updateCode(code) {
   console.clear();

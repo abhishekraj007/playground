@@ -1,6 +1,6 @@
 import { DID_UPDATE_CODE } from "../actions/types";
 
-const INITIAL_STATE = "// Start Coding\n";
+const INITIAL_STATE = "// Start Coding\nconst ready = true;\nready";
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {

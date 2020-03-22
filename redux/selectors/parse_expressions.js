@@ -21,8 +21,8 @@ const findDelimiters = ({ column }, lineContents) =>
   ).length;
 
 const parseExpressions = code => {
-  const isClient = typeof window !== "undefined";
-  console.log(isClient);
+  // const isClient = typeof window !== "undefined";
+  // console.log(isClient);
 
   const transformedCode = transform(code, { presets: ["react"] }).code;
   const codeByLine = transformedCode.split("\n");
