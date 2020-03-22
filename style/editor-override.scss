@@ -1,18 +1,4 @@
-$editor-background: #001528;
-// $editor-background: #1b1b1b;
-$editor-comment: #c3c3c3;
-
-$pane-background: #0c0c0c;
-$pane-header-bg: #02203c;
-$pane-header-color: #cccccc;
-$pane-color: #ffffff;
-
-$resizer-background: #02203c;
-$resizer-width: 1rem;
-$border-color: rgba(0, 0, 0, 0);
-$resizer-hover-bg: #999999;
-
-$error-color: #d3ff2e;
+@import "./variable.scss";
 
 .ReactCodeMirror,
 .CodeMirror {
